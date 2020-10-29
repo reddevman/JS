@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio 1</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mostrar versión del navegador con Javascript.</h1>
+    <p id="versionNav"></p>
+
+    <script>
+        var x = navigator.appVersion;
+        document.getElementById("versionNav").innerHTML = x;
+    </script>
+</body>
+</html>

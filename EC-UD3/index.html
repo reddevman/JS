@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Entorno Cliente Unidad 3</title>
+</head>
+<body>
+    <p>Haz clic en el botón para la información</p>
+    <button onclick="funcionAltura()">PULSA para ver altura</button>
+    <button onclick="funcionAnchura()">PULSA para ver anchura</button>
+    <p id="altura"></p>
+    <p id="anchura"></p>
+
+
+    <script>
+        function funcionAltura() {
+            var x = "La altura es: " + screen.availHeight + "px";
+            document.getElementById("altura").innerHTML = x;
+        }
+        function funcionAnchura() {
+            var x = "La altura es: " + screen.availWidth + "px";
+            document.getElementById("anchura").innerHTML = x;
+        }
+    </script>
+</body>
+</html>

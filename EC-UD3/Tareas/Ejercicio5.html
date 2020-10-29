@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio 5</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Tecla para aumentar tamaño de letra.</h1>
+    <p id="texto">
+        Consequat qui adipisicing eiusmod esse cupidatat officia.
+    </p>
+    <button onclick="funcionFuente()">PULSAR para aumentar el tamaño de la letra</button>
+    <script>
+        function funcionFuente(){
+            document.getElementById("texto").style.fontSize = "50px";
+        }
+    </script>
+</body>
+</html>

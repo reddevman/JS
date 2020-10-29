@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Ejercicio 3</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escribir un titulo y un parrafo, y al presionar un botón indicar cuántas letras tiene cada uno de ellos.</h1>
+    <h3 id="titulo">Título</h3>
+    <p id="parrafo">Mollit dolore ipsum est anim deserunt ad anim non nisi. Magna adipisicing do laboris dolor consequat dolore
+        tempor esse id eiusmod. Qui amet veniam veniam excepteur. Velit culpa nulla et ullamco excepteur ipsum laboris.
+        Exercitation commodo deserunt qui in sunt excepteur. Eu excepteur labore cupidatat qui nulla tempor nostrud sint
+        nostrud minim.</p>
+    <button onclick="funcionTitulo()">PULSAR para contar el TÍTULO</button>
+    <button onclick="funcionParrafo()">PULSAR para contar el PÁRRAFO</button>
+    <p id="contarTitulo"></p>
+    <p id="contarParrafo"></p>
+
+    <script>
+        function funcionTitulo(){
+            var str1 = document.getElementById("titulo").textContent;
+            var numLetrasTitulo = str1.length;
+            document.getElementById("contarTitulo").innerHTML = numLetrasTitulo;
+        }
+        function funcionParrafo(){
+            var str2 = document.getElementById("parrafo").textContent;
+            var numLetrasParrafo = str2.length;
+            document.getElementById("contarParrafo").innerHTML = numLetrasParrafo;
+        }
+    </script>
+</body>
+</html>
