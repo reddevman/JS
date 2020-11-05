@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajita</title>
+    <style>
+        div {
+            background: aquamarine;
+            width: 400px;
+            height: 600px;
+        }
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <p id="info-screen"></p>
+
+    <script>
+        let informacion = 'availHeight: ' + screen.availHeight + '<br>' +
+            'availWidth: ' + screen.availWidth + '<br>' +
+            'height: ' + screen.height + '<br>' +
+            'width: ' + screen.width + '<br>' +
+            'colorDepth: ' + screen.colorDepth;
+
+        document.getElementById("info-screen").innerHTML = informacion;
+    </script>
+</body>
+
+</html>

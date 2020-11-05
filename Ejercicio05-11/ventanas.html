@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        p {
+            font-weight: bold;
+        }
+    </style>
+    <title>Ventanas</title>
+</head>
+
+<body>
+    <h1>Redirección con WINDOW LOCATION</h1>
+    <button onclick="checkRedirection()">Ingresar en 'ventanas'</button>
+    <p id="info-screen"></p>
+
+    <script>
+        function checkRedirection() {
+            if (window.confirm('¿Quieres salir del sitio e ir a cajita.html?')) {
+                window.location = 'cajita.html';
+            } else window.alert('Dijiste que no ;)');
+        }
+
+        let informacion = 'availHeight: ' + screen.availHeight + '<br>' +
+            'availWidth: ' + screen.availWidth + '<br>' +
+            'height: ' + screen.height + '<br>' +
+            'width: ' + screen.width + '<br>' +
+            'colorDepth: ' + screen.colorDepth;
+
+        document.getElementById("info-screen").innerHTML = informacion;
+    </script>
+</body>
+
+</html>
