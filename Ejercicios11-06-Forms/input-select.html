@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selects</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Elegir una opción</legend>
+            <select id="seleccionar">
+                <option value="#ff0000"></option>
+                <option value="#009933"></option>
+                <option value="#0000ff"></option>
+            </select>
+        </fieldset>
+    </form><br>
+    <div>
+        <p>El número del índice seleccionado en SELECT es:
+            <input type="text" id="caja1">
+        </p>
+        <p>El texto seleccionado en SELECT es:
+            <input type="text" id="caja2">
+        </p>
+        <p>El valor asociado a la opción en SELECT es:
+            <input type="text" id="caja3">
+        </p>
+
+    </div>
+
+    <script>
+        function elegirColor() {
+            let seleccion = document.getElementById("seleccionar");
+            document.getElementById("caja1").value = seleccion.selectedIndex;
+        }
+    </script>
+</body>
+
+</html>

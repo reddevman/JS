@@ -20,7 +20,7 @@
   // seccion de codigo javascript 
 function cambiarColor()
 {
-  var seleccion=document.getElementById('select1');
+  var seleccion=document.getElementById('seleccionar');
   document.getElementById('text1').value=seleccion.selectedIndex;
   document.getElementById('text2').value=seleccion.options[seleccion.selectedIndex].text;
   document.getElementById('text3').value=seleccion.options[seleccion.selectedIndex].value;
@@ -28,7 +28,7 @@ function cambiarColor()
 </script>
 
 <form>
-  <select id="select1" onChange="cambiarColor()">
+  <select id="seleccionar" onChange="cambiarColor()">
     <option value="ff0000">Rojo</option>
     <option value="00ff00">Verde</option>
     <option value="0000ff">Azul</option>
