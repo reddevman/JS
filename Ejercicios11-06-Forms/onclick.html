@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnClick</title>
+</head>
+
+<body>
+    <h1>ONCLICK</h1>
+    <h3>Presiona el botón para incrementar la variable contador</h3>
+    <!--
+        Asociamos al botón el evento onclick y la función creada en el script
+    -->
+    <button onclick="incrementar()" >Pulsar aquí</button>
+    <!--
+        Creamos un elemento p donde irá el texto que va a ir siendo rellenado
+        por la información creada en la función
+    -->
+    <p id="texto"></p>
+    <script>
+        // Variable contador inicializada a 0 para luego ir incrementándola
+        let contador = 0;
+
+        function incrementar() {
+            // Se incrementa contador cada vez que se ejecut la función
+            contador++;
+
+            // Variable x vale lo que queremos que muestre en el html
+            let x = `El contador ahora vale: ${contador}`;
+
+            /**
+             * Asignamos por id (el párrafo que es id texto) el valor de x, y 
+             * rellena en el html lo que contiene esa variable
+             */
+            document.getElementById("texto").innerHTML = x;
+            //alert(`El contador ahora vale: ${contador}`);
+        }
+    </script>
+</body>
+
+</html>
