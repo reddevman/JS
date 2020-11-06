@@ -11,10 +11,10 @@
     <form action="">
         <fieldset>
             <legend>Elegir una opción</legend>
-            <select id="seleccionar">
-                <option value="#ff0000"></option>
-                <option value="#009933"></option>
-                <option value="#0000ff"></option>
+            <select id="seleccionar" onchange="elegirColor()">
+                <option value="#ff0000">RED</option>
+                <option value="#009933">GREEN</option>
+                <option value="#0000ff">BLUE</option>
             </select>
         </fieldset>
     </form><br>
@@ -34,7 +34,20 @@
     <script>
         function elegirColor() {
             let seleccion = document.getElementById("seleccionar");
-            document.getElementById("caja1").value = seleccion.selectedIndex;
+            document.getElementById("caja1").value = seleccion.selectedIndex+1;
+            document.getElementById("caja2").value = seleccion.options[seleccion.selectedIndex].text;
+            document.getElementById("caja3").value = seleccion.options[seleccion.selectedIndex].value;
+
+            let color = seleccion.options[seleccion.selectedIndex].value;
+            switch (color) {
+                case #ff0000:
+                    document.body.style.background= "#ff0000";
+                    break;
+            
+                default:
+                    break;
+            }
+
         }
     </script>
 </body>
