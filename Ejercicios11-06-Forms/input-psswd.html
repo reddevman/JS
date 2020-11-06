@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+</head>
+
+<body>
+    <h1>PASSWORD</h1>
+    <form>
+        <fieldset>
+            <legend>Ingresar la contraseña:</legend>
+            <!-- 
+                Inputs a los que se le añaden diversos métodos.
+                metodo(this) se refiere a que pase como parámetro ese mismo objeto del DOM.
+            -->
+            <input type="password" id="psswd" onfocus="psswdFocus(this)" onblur="psswdBlur(this)"><br>
+            <input type="button" value="Enviar" onclick="checkPass()">
+        </fieldset>
+    </form>
+
+    <script>
+        function checkPass() {
+            let password = document.getElementById("psswd").value;
+            /**
+             * Usamos condición para comprobar que la LONGITUG (.length) de la cadena
+             * es true según lo que necesitemos (menor que 8 daría false por lo que no vale)
+             */ 
+            if (password.length < 8) {
+                alert("La clave no puede tener menos de 8 carácteres");
+            } else alert("Contraseña confirmada");
+        }
+
+        /**
+         * Función que al hacer foco en el input nos cambia el color.
+         * La siguiente función lo que hace es volverlo a su color original.
+         */ 
+        function psswdFocus(x) {
+            x.style.background = "#ff9999";
+        }
+        function psswdBlur(x) {
+            x.style.background = "white";
+        }
+    </script>
+</body>
+
+</html>
