@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Rellenar campos:</legend>
+            Nombre:<br>
+            <input type="text" id="nombre"><br>
+            Edad:<br>
+            <input type="text" id="edad"><br>
+        </fieldset>
+        <input type="button" value="Confirmar" onclick="mostrar()">
+    </form>
+    <script>
+        function mostrar() {
+            let nombre = document.getElementById("nombre").value;
+            let edad = document.getElementById("edad").value;
+            alert(`El nombre ingresado es ${nombre} y la edad ${edad}`);
+        }
+    </script>
+</body>
+
+</html>
