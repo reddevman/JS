@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: #f2f3f4;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        div {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <title>Validaciones</title>
+</head>
+
+<body>
+    <div>
+        <fieldset>
+            <legend>Validaciones de formularios</legend>
+            <label>Introduce un número del 1 al 10:</label><br>
+            <input id="val1" type="number" min="1" max="5" required><br>
+            <button onclick="miFuncion()">PULSAR</button>
+            <p id="data-validated"></p>
+        </fieldset>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
