@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Regulares</title>
+</head>
+<body>
+    <form>
+        <label>Introduce DNI:</label>
+        <input type="text" id="inputDni" pattern="^[a-zA-Z]-[0-9]{8,8}$">
+        <button type="button" onclick="regexDni()">ENVIAR</button>
+    </form>
+    <p id="resultado"></p>
+    <form>
+        <label>Introduce frase alfanumérica con posibles comas y un punto final:</label>
+        <input type="text" id="inputFrase" pattern="^[A-Z]{1}[\w,]*\.{1}$">
+        <button type="button" onclick="regexFrase()">ENVIAR</button>
+    </form>
+    <p id="resultado2"></p>
+    <form>
+        <label>Introduce un nombre con espacios (máximo 4 palabras):</label>
+        <input type="text" id="inputNombre" pattern="([A-Z]{1}[\w\s]{2,4})">
+        <button type="button" onclick="regexNombre()">ENVIAR</button>
+    </form>
+    <p id="resultado3"></p>
+    <script src="script.js"></script>
+</body>
+</html>
