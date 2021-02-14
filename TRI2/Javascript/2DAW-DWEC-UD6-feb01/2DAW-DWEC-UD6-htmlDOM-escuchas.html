@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!--
+HTML
+web o pagina: Ejercicios Unidad 6 - Desarrollo Web Entorno Cliente
+autor: Prof. Carlos Boni
+fecha: Enero 2021
+-->
+
+<head>
+	<title>2DAW-DWEC-UD6. Prof.Carlos Boni</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="00-modelo.css">
+	<style>
+	/* aquí estilos aplicados solo a esta pagina */
+	body {
+		background-color: rgba(0, 0, 128, 0.1); /* Azul al 10% */
+		color: black;
+	}
+	</style>
+</head>
+
+
+<body>
+
+	<header>
+	<h1>Ejercicios Unidad 6 - Desarrollo Web Entorno Cliente</h1>
+	<h2>DOM HTML: acceso y manipulación con Javascript</h2>
+	<h3>Añadir y eliminar eventos a elementos del DOM</h3>
+	<br>
+	</header>
+	
+	<main>
+	<!-- bloque de contenido de la pagina -->
+
+
+		<p>Estos efectos fueron añadidos y eliminados usando JavaScript mediente<br/>
+		los métodos addEventListener() y removeEventListener()<br/>
+		sobre el mismo elemento del DOM HTML.</p>
+
+		<button id="aquelBoton">PINCHAME</button>
+
+		<p id="texto"></p>
+	</main>
+
+
+	<!-- pie de pagina -->
+	<footer>
+	<br><br><br>
+	<div><a href="https://carlosboni.com" target="_blank">Prof. Carlos Boni</a></div>
+	</footer>
+	<script>
+	// seccion de codigo javascript 
+		// guardo el color original usando el objeto window porque lo obtiene por herencia
+		var x = document.getElementById("aquelBoton");
+		x.addEventListener("mouseover", ahoraEntra);
+		x.addEventListener("click", ahoraPincha);
+		x.addEventListener("mouseout", ahoraSale);
+
+		function ahoraEntra() {
+			document.getElementById("texto").innerHTML += "Entra el ratón<br>"
+		}
+
+		function ahoraPincha() {
+			document.getElementById("texto").innerHTML += "Pinchado<br>"
+			x.removeEventListener("mouseover", ahoraEntra);
+			x.removeEventListener("click", ahoraPincha);
+			x.removeEventListener("mouseout", ahoraSale);
+			alert('Pondrá pinchado y luego ya no funcionará si no vuelves a recargar');
+		}
+
+		function ahoraSale() {
+			document.getElementById("texto").innerHTML += "Sale el ratón<br>"
+		}
+
+	</script>
+</body>
+</html>
+

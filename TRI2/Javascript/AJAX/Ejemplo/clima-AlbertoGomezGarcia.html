@@ -1,0 +1,189 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tiempo</title>
+    <style>
+        #datos {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body onLoad="init();">
+    Introduce el código de la ciudad deseada
+    <p>
+        Londres - 3846616<br>
+        Milan - 4261361<br>
+        Lisboa - 2267057<br>
+        Paris - 2968815<br>
+        Madrid - 3117735<br><br>
+        <table>
+            <tr>
+                <td height=20 colspan="3" bgcolor="#99FFFF" border=1><span id="resultado"></span></td>
+            </tr>
+            <tr>
+                <td><button id="siete">7</button></td>
+                <td><button id="ocho">8</button></td>
+                <td><button id="nueve">9</button></td>
+            </tr>
+            <tr>
+                <td><button id="cuatro">4</button></td>
+                <td><button id="cinco">5</button></td>
+                <td><button id="seis">6</button></td>
+            </tr>
+            <tr>
+                <td><button id="uno">1</button></td>
+                <td><button id="dos">2</button></td>
+                <td><button id="tres">3</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="cero">0</button></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center"><button id="weather">Consultar tiempo</button></td>
+            </tr>
+        </table>
+        <br>
+        <div id="datos">
+
+            <span id="temperatura"></span><br>
+            <span id="humedad"></span><br>
+            <span id="viento"></span><br>
+            <span id="visibilidad"></span><br>
+            <span id="sensacion_termica"></span><br>
+            </ul>
+        </div>
+
+        <script>
+            var codigo;
+            var intentos = 1;
+
+            function init() {
+
+                var resultado = document.getElementById('resultado');
+                var weather = document.getElementById('weather');
+                var uno = document.getElementById('uno');
+                var dos = document.getElementById('dos');
+                var tres = document.getElementById('tres');
+                var cuatro = document.getElementById('cuatro');
+                var cinco = document.getElementById('cinco');
+                var seis = document.getElementById('seis');
+                var siete = document.getElementById('siete');
+                var ocho = document.getElementById('ocho');
+                var nueve = document.getElementById('nueve');
+                var cero = document.getElementById('cero');
+            }
+
+            //Eventos
+            uno.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "1";
+            }
+            dos.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "2";
+            }
+            tres.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "3";
+            }
+            cuatro.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "4";
+            }
+            cinco.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "5";
+            }
+            seis.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "6";
+            }
+            siete.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "7";
+            }
+            ocho.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "8";
+            }
+            nueve.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "9";
+            }
+            cero.onclick = function (e) {
+                resultado.textContent = resultado.textContent + "0";
+            }
+            weather.onclick = function (e) {
+                codigo = resultado.textContent;
+                limpiar();
+                check(codigo);
+            }
+
+            function limpiar() {
+                resultado.textContent = "";
+            }
+
+            const API_KEY = '250dc721cec7fe2dc83b7dc772168d52';
+
+            function check(id) {
+
+                if (intentos > 3) {
+                    mensaje = '<FONT COLOR="red"> Ya ha gastado sus tres intentos</font>';
+                    error(mensaje);
+                    window.setTimeout("window.close()", 5000);
+                } else {
+                    if (id.length == 7) {
+                        if (id == 3846616 || id == 4261361 || id == 2267057 || id == 2968815 || id == 3117735) {
+                            getWeatherByCityId(id);
+                        } else {
+                            mensaje = '<FONT COLOR="red"> El código no es correcto</font>';
+                            error(mensaje);
+                        }
+                    } else {
+                        mensaje = '<FONT COLOR="red"> El código debe tener 7 números</font>';
+                        error(mensaje);
+                    }
+                }
+            }
+
+            function error(mensaje) {
+                document.getElementById('temperatura').innerHTML = mensaje;
+                document.getElementById('humedad').innerHTML = "";
+                document.getElementById('viento').innerHTML = "";
+                document.getElementById('visibilidad').innerHTML = "";
+                document.getElementById('sensacion_termica').innerHTML = "";
+                document.getElementById('datos').style.visibility = 'visible';
+            }
+
+            function getWeatherByCityId(id) {
+                if (id) {
+                    var request = new XMLHttpRequest();
+                    request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id=' + id + '&appid=' + API_KEY,
+                        true);
+                    request.onreadystatechange = function (aEvt) {
+                        if (request.readyState == 4) {
+                            if (request.status == 200) {
+                                var response = JSON.parse(request.responseText);
+                                if (response) {
+                                    showData(response.main.temp, response.main.humidity, response.wind.speed,
+                                        response.visibility, response.main.feels_like);
+                                }
+                            } else {
+                                console.log("Error loading page\n");
+                            }
+                        }
+                    };
+                    request.send(null);
+                }
+            }
+
+            function showData(temperatura, humedad, viento, visibilidad, sensacion_termica) {
+                document.getElementById('temperatura').innerHTML = "Temperatura: " + temperatura + " ºF";
+                document.getElementById('humedad').innerHTML = "Humedad: " + humedad + " g/m3";
+                document.getElementById('viento').innerHTML = "Velocidad viento: " + viento + " kms/h";
+                document.getElementById('visibilidad').innerHTML = "Visibilidad: " + visibilidad;
+                document.getElementById('sensacion_termica').innerHTML = "Sensación térmica: " + sensacion_termica +
+                    " ºF";
+                document.getElementById('datos').style.visibility = 'visible';
+                intentos = intentos + 1;
+            }
+        </script>
+</body>
+
+</html>
