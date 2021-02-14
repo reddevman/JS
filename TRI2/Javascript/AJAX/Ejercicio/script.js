@@ -3,6 +3,8 @@ let name = document.querySelector(".name");
 let description = document.querySelector(".description");
 let temperature = document.querySelector(".temperature");
 
+document.querySelector("#btn-submit").addEventListener("click", getWeatherData, false);
+
 function getWeatherData() {
     // Capturar selección actual del select en HTML
     let cities = document.querySelector("#cities");
