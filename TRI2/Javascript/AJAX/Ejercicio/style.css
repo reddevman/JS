@@ -1,0 +1,25 @@
+:root {
+    --font1: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font1);
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main #cities, input[type=submit] {
+    font-family: var(--font1);
+    margin: 20px;
+    width: 400px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
