@@ -32,10 +32,15 @@ function drawWeather(data, selectedCityName)
 {
     // Convertir de fahrenheit que viene por defecto a celsius
     let celcius = Math.round(parseFloat(data.main.temp) - 273.15);
+    // Recogemos la descripción del tiuempo actual
     let description = data.weather[0].description;
+    // Recogemos el icono del tiempo actual y se construye la url que se insertará en el html
+    let icon = data.weather[0].icon;
+    let iconurl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
     document.querySelector(".name").innerHTML = selectedCityName;
     document.querySelector(".text").innerHTML = "El tiempo en conversión en grados Celsius es:";
     document.querySelector(".temperature").innerHTML = `Temperatura: ${celcius} ºC`;
     document.querySelector(".description").innerHTML = description;
+    document.querySelector("#icon").setAttribute("src", iconurl);
 }
